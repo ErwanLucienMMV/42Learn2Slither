@@ -167,6 +167,8 @@ class SnakeGame:
         if length == self.size * self.size:
             return self._finish(action, Event.BOARD_COMPLETE)
         self._replenish_apples()
+        if not self._green_apples:
+            return self._finish(action, Event.BOARD_COMPLETE)
         return self._result(action, event)
 
     def _replenish_apples(self) -> None:

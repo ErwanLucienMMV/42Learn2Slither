@@ -28,7 +28,7 @@ END_LABELS = {
     Event.WALL_COLLISION: "You hit a wall.",
     Event.BODY_COLLISION: "You hit the snake's body.",
     Event.ZERO_LENGTH: "No cells left after that red apple.",
-    Event.BOARD_COMPLETE: "All 100 cells belong to the snake.",
+    Event.BOARD_COMPLETE: "No room left for green apples. You win!",
 }
 
 
@@ -178,7 +178,7 @@ class GameWindow:
         self._draw_panel()
         self.text("G  grow +1", (28, 656), color=GREEN)
         self.text("R  shrink -1", (184, 656), color=RED)
-        self.text("Blue is you. Fill the board to win.",
+        self.text("Blue is you. Outgrow the green apples to win.",
                   (28, 687), "small", MUTED)
         if self.game.terminated:
             self._draw_end_screen()
