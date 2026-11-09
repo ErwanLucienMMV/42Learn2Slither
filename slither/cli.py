@@ -17,7 +17,12 @@ def speed_value(value: str) -> float:
 
 def parser() -> argparse.ArgumentParser:
     result = argparse.ArgumentParser(
-        description="Play the 10x10 Learn2Slither board with manual controls.",
+        description="Learn2Slither: a 10x10 Snake environment.",
+        epilog="Start manual play with: python snake.py --play",
+    )
+    result.add_argument(
+        "--play", action="store_true",
+        help="open the game window with manual keyboard controls",
     )
     result.add_argument("--seed", type=int, help="reproducible initial board")
     result.add_argument(
@@ -36,7 +41,11 @@ def parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = parser().parse_args(argv)
+    command_line = parser()
+    args = command_line.parse_args(argv)
+    if not args.play:
+        command_line.print_help()
+        return 0
     try:
         import pygame
     except ModuleNotFoundError:

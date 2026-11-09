@@ -7,7 +7,7 @@ implementation before trying DQN.
 
 ## 1. Get comfortable with the board API
 
-Run `python snake.py --seed 17 --step-by-step`. Compare the visible board with
+Run `python snake.py --play --seed 17 --step-by-step`. Compare the board with
 the terminal cross. Try all four directions, both apple types, a reversal and a
 wall collision. Read `slither/environment.py` and `slither/vision.py`.
 

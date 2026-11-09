@@ -12,7 +12,7 @@ Python 3.10 or newer is required. From this directory on Windows:
 ```powershell
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements.txt
-.venv\Scripts\python.exe snake.py
+.venv\Scripts\python.exe snake.py --play
 ```
 
 On Linux or macOS:
@@ -20,17 +20,19 @@ On Linux or macOS:
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python snake.py
+.venv/bin/python snake.py --play
 ```
 
 The game needs a graphical desktop. No external images, fonts, sound files or
 GPU are required. The board starts paused so you can inspect it before moving.
-`python -m slither` is an alternative entry point.
+Manual play is opt-in: without `--play`, the program prints usage information
+and exits without opening a window. Python does not need a separate compilation
+step. `python -m slither --play` is an alternative entry point.
 
 ```sh
-python snake.py --seed 17 --speed 3
-python snake.py --step-by-step
-python snake.py --quiet
+python snake.py --play --seed 17 --speed 3
+python snake.py --play --step-by-step
+python snake.py --play --quiet
 python snake.py --help
 ```
 
